@@ -1,5 +1,10 @@
 const DEFAULT_SIZE = 16;
+const DEFAULT_COLOR = '#333333';
+const DEFAULT_MODE = 'color';
+
 let currentSize = DEFAULT_SIZE;
+let currentColor = DEFAULT_COLOR;
+let currentMode = DEFAULT_MODE;
 
 const grid = document.querySelector("#grid");
 
@@ -14,6 +19,7 @@ function drawGrid(size) {
   }
 }
 
-let getSize = prompt("What grid size to use?", '16');
-drawGrid(getSize);
-console.log(grid.style.gridTemplateColumns);
+window.onload = () => {
+  drawGrid(DEFAULT_SIZE)
+  console.log(grid.style.gridTemplateColumns)
+}
