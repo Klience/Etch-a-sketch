@@ -67,6 +67,8 @@ function setActiveBtn(newMode) {
 
 function resetGrid() {
   currentSize = DEFAULT_SIZE;
+  sizeValue.innerText = `${currentSize} x ${currentSize}`;
+  sizePicker.value = currentSize;
   grid.innerText = '';
   drawGrid(currentSize);
 }
