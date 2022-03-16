@@ -40,19 +40,27 @@ function setSize(size) {
 
 function setMode(mode) {
   setActiveBtn(mode);
+  currentMode = mode;
 }
 
 function setActiveBtn(mode) {
-  if (mode === 'color') {
-    colorBtn.classList.add('active');
-  } else if (mode === 'rainbow') {
+  if (currentMode === 'rainbow') {
+    rainbowBtn.classList.remove('active');
+  } else if (currentMode === 'color') {
+    colorBtn.classList.remove('active');
+  } else if (currentMode === 'erase') {
+    eraseBtn.classList.remove('active');
+  }
+
+  if (mode === 'rainbow') {
     rainbowBtn.classList.add('active');
+  } else if (mode === 'color') {
+    colorBtn.classList.add('active');
   } else if (mode === 'erase') {
     eraseBtn.classList.add('active');
   }
 }
 
-// function setInactiveBtn(mode){}
 
 /*
 function setMode() {
