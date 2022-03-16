@@ -36,6 +36,7 @@ function setNewColor(newColor) {
 // Updates current size with new size from size picker
 function setNewSize(newSize) {
   currentSize = newSize;
+  grid.innerText = '';
   drawGrid(newSize);
 }
 
