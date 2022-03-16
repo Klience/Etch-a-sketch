@@ -8,3 +8,8 @@
 .gridElement {
   border: 2px solid red;
 }
+
+button.active {
+  background-color: #333333;
+  color: #ededed;
+}

@@ -23,14 +23,14 @@ rainbowBtn.addEventListener('click', () => setMode('rainbow'));
 eraseBtn.addEventListener('click', () => setMode('erase'));
 clearBtn.addEventListener('click', () => resetGrid());
 
+console.log(currentColor);
 
 function getSize(size) {
   sizeValue.innerText = `${size} x ${size}`;
 }
 
 function getColor(color) {
-  currentColor = color;
-  console.log(currentColor);
+  return currentColor = color;
 }
 
 function setSize(size) {
@@ -38,6 +38,21 @@ function setSize(size) {
   console.log(currentSize);
 }
 
+function setMode(mode) {
+  setActiveBtn(mode);
+}
+
+function setActiveBtn(mode) {
+  if (mode === 'color') {
+    colorBtn.classList.add('active');
+  } else if (mode === 'rainbow') {
+    rainbowBtn.classList.add('active');
+  } else if (mode === 'erase') {
+    eraseBtn.classList.add('active');
+  }
+}
+
+// function setInactiveBtn(mode){}
 
 /*
 function setMode() {
@@ -70,9 +85,9 @@ function drawGrid(size) {
   grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
   for (let i = 0; i < size * size; i++) {
-      const gridElement = document.createElement('div');
-      gridElement.classList.add('gridElement');
-      grid.appendChild(gridElement);
+    const gridElement = document.createElement('div');
+    gridElement.classList.add('gridElement');
+    grid.appendChild(gridElement);
   }
 }
 
@@ -81,4 +96,5 @@ window.onload = () => {
 //  console.log(grid.style.gridTemplateColumns);
   console.log(sizePicker.value);
   console.log(sizeValue.innerText);
+
 }
