@@ -3,7 +3,7 @@ const DEFAULT_COLOR = '#333333';
 const DEFAULT_MODE = 'color';
 
 let currentSize = DEFAULT_SIZE;
-let currentColor = DEFAULT_COLOR;
+let currentColor = DEFAULT_COLOR; // drawing color, not cell
 let currentMode = DEFAULT_MODE;
 
 const grid = document.querySelector('#grid');
@@ -17,7 +17,7 @@ function setMode() {
   // this function returns color mode only (not value)?
 }
 function getMode() {
-  //
+  // GET AND SET SHALL BE INTERCHANGED
 }
 function setColor() {
   // returns color I picked or random color, or default (erase)
@@ -26,7 +26,9 @@ function setColor() {
 }
 function getColor()
 function setSize()
-function getSize()
+function getSize() {
+  // as the mouse is up from slider sizePicker, it shall reset the grid using that size and default color
+}
 function resetGrid() {
   // reset the grid to default size, color and mode
 }
