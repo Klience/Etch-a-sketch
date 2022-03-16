@@ -3,10 +3,41 @@ const DEFAULT_COLOR = '#333333';
 const DEFAULT_MODE = 'color';
 
 let currentSize = DEFAULT_SIZE;
-let currentColor = DEFAULT_COLOR; // drawing color, not cell
+let currentColor = DEFAULT_COLOR; // drawing color, not cell's background
 let currentMode = DEFAULT_MODE;
 
 const grid = document.querySelector('#grid');
+const sizePicker = document.querySelector('#sizePicker');
+const sizeValue = document.querySelector('#sizeValue');
+const colorPicker = document.querySelector('#colorPicker');
+const colorBtn = document.querySelector('#colorBtn');
+const rainbowBtn = document.querySelector('#rainbowBtn');
+const eraseBtn = document.querySelector('#eraseBtn');
+const clearBtn = document.querySelector('#clearBtn');
+
+sizePicker.addEventListener('mousemove', e => getSize(e.target.value));
+sizePicker.addEventListener('change', e => setSize(e.target.value));
+colorPicker.addEventListener('change', e => getColor(e.target.value));
+colorBtn.addEventListener('click', () => setMode('color'));
+rainbowBtn.addEventListener('click', () => setMode('rainbow'));
+eraseBtn.addEventListener('click', () => setMode('erase'));
+clearBtn.addEventListener('click', () => resetGrid());
+
+
+function getSize(size) {
+  sizeValue.innerText = `${size} x ${size}`;
+}
+
+function getColor(color) {
+  currentColor = color;
+  console.log(currentColor);
+}
+
+function setSize(size) {
+  currentSize = size;
+  console.log(currentSize);
+}
+
 
 /*
 function setMode() {
@@ -47,5 +78,7 @@ function drawGrid(size) {
 
 window.onload = () => {
   drawGrid(DEFAULT_SIZE);
-  console.log(grid.style.gridTemplateColumns);
+//  console.log(grid.style.gridTemplateColumns);
+  console.log(sizePicker.value);
+  console.log(sizeValue.innerText);
 }
