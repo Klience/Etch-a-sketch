@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
     <title>replit</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <div id="grid" class="grid"></div>
+    <div class="settings">
+      <input id="colorPicker" type="color" value="#333333" />
+      <button id="colorBtn">Color mode</button>
+      <button id="rainbowBtn">Rainbow mode</button>
+      <button id="eraseBtn">Eraser</button>
+      <button id="clearBtn">Clear</button>
+      <div id="sizeValue" class="sizeValue">16 x 16</div>
+      <input id="sizePicker" type="range" value="16" min="8" max="64" />
+    </div>
     <script src="script.js"></script>
   </body>
 </html>

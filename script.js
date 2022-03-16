@@ -6,7 +6,31 @@ let currentSize = DEFAULT_SIZE;
 let currentColor = DEFAULT_COLOR;
 let currentMode = DEFAULT_MODE;
 
-const grid = document.querySelector("#grid");
+const grid = document.querySelector('#grid');
+
+/*
+function setMode() {
+  // color -- color I picked
+  // rainbow -- random color each time
+  // erase -- revert to default color
+
+  // this function returns color mode only (not value)?
+}
+function getMode() {
+  //
+}
+function setColor() {
+  // returns color I picked or random color, or default (erase)
+  // set via 'node.style.color.value'
+  // put erase as a separate function?
+}
+function getColor()
+function setSize()
+function getSize()
+function resetGrid() {
+  // reset the grid to default size, color and mode
+}
+*/
 
 function drawGrid(size) {
   grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -20,6 +44,6 @@ function drawGrid(size) {
 }
 
 window.onload = () => {
-  drawGrid(DEFAULT_SIZE)
-  console.log(grid.style.gridTemplateColumns)
+  drawGrid(DEFAULT_SIZE);
+  console.log(grid.style.gridTemplateColumns);
 }
