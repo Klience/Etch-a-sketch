@@ -28,35 +28,35 @@ resetBtn.addEventListener('click', () => resetGrid());
  document.body.onmousedown = () => (mouseDown = true);
  document.body.onmouseup = () => (mouseDown = false);
 
-// Updates grid size text: "size x size"
+// Update grid size text: "size x size"
 function setSizeValue(size) {
   sizeValue.innerText = `${size} x ${size}`;
 }
 
-// Updates current color with new color from color picker
+// Update current color with new color from color picker
 function setNewColor(newColor) {
   currentColor = newColor;
 }
 
-// Resets current color to default
+// Reset current color to default
 function resetColor() {
   currentColor = DEFAULT_COLOR;
 }
 
-// Updates current size with new size from size picker
+// Update current size with new size from size picker
 function setNewSize(newSize) {
   currentSize = newSize;
   grid.innerText = '';
   drawGrid(newSize);
 }
 
-// Updates current mode with new mode from a corresponding button
+// Update current mode with new mode from a corresponding button
 function setCurrentMode(newMode) {
   setActiveBtn(newMode);
   currentMode = newMode;
 }
 
-// Generates and returns a random color
+// Generate and returns a random color
 function randomColor () {
   const range = 256;
   let color = ``;
@@ -67,7 +67,7 @@ function randomColor () {
   return color = `rgb(${red}, ${green}, ${blue})`;
 }
 
-// Updates current mode's button style as active
+// Update current mode's button style as active
 function setActiveBtn(newMode) {
   if (currentMode === 'rainbow') {
     rainbowBtn.classList.remove('active');
@@ -86,7 +86,7 @@ function setActiveBtn(newMode) {
   }
 }
 
-// Sets cell's background color based on mode and event type
+// Set cell's background color based on mode and event type
 function setBackground(e) {
    if (e.type === 'mouseover' && !mouseDown) return
    if (currentMode === 'rainbow') {
@@ -98,17 +98,18 @@ function setBackground(e) {
   }
 }
 
-// Resets grid's size and cell color
+// Reset grid's size and cell color
 function resetGrid() {
   currentColor = DEFAULT_COLOR;
   currentSize = DEFAULT_SIZE;
+  colorPicker.value = `#333333`;
   sizeValue.innerText = `${currentSize} x ${currentSize}`;
   sizePicker.value = currentSize;
   grid.innerText = '';
   drawGrid(currentSize);
 }
 
-// Draws a grid of specified size
+// Draw a grid of specified size
 function drawGrid(size) {
   grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
   grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
@@ -122,7 +123,7 @@ function drawGrid(size) {
   }
 }
 
-// Draws a grid with default values when window loads
+// Draw a grid with default values when window loads
 window.onload = () => {
   drawGrid(DEFAULT_SIZE);
 }

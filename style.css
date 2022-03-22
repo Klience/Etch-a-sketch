@@ -4,9 +4,8 @@
   height: 500px;
 }
 
-
 .gridElement {
-  border: 2px solid red;
+  border: 1px solid #333333;
 }
 
 button.active {
