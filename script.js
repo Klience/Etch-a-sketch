@@ -88,11 +88,11 @@ function setActiveBtn(newMode) {
 
 // Set cell's background color based on mode and event type
 function setBackground(e) {
-   if (e.type === 'mouseover' && !mouseDown) return
+   if (e.type === 'mouseover' && !mouseDown) return;
    if (currentMode === 'rainbow') {
      e.target.style.backgroundColor = randomColor();
   } else if (currentMode === 'color') {
-    e.target.style.backgroundColor = currentColor
+    e.target.style.backgroundColor = currentColor;
   } else if (currentMode === 'erase') {
     e.target.style.backgroundColor = 'rgb(255, 255, 255)';
   }
@@ -117,8 +117,8 @@ function drawGrid(size) {
   for (let i = 0; i < size * size; i++) {
     const gridElement = document.createElement('div');
     gridElement.classList.add('gridElement');
-    gridElement.addEventListener('mouseover', setBackground)
-    gridElement.addEventListener('mousedown', setBackground)
+    gridElement.addEventListener('mouseover', setBackground);
+    gridElement.addEventListener('mousedown', setBackground);
     grid.appendChild(gridElement);
   }
 }
