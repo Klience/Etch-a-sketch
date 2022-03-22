@@ -83,14 +83,15 @@ function setActiveBtn(newMode) {
 
 
 function setBackground() {
-  if (currentMode === 'rainbow') {
-    console.log("it's rainbow mode");
+  const cell = document.querySelector('.gridElement');
+  if (currentMode === 'color') {
+    cell.style.backgroundColor = currentColor;
   }
-  else if (currentMode === 'color') {
-    console.log("it's color mode");
+  else if (currentMode === 'rainbow') {
+    cell.style.backgroundColor = randomColor();
   }
   else if (currentMode === 'erase') {
-    console.log("it's erase mode");
+    cell.style.backgroundColor = DEFAULT_COLOR;
   }
 }
 
