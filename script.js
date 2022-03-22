@@ -126,4 +126,5 @@ function drawGrid(size) {
 // Draw a grid with default values when window loads
 window.onload = () => {
   drawGrid(DEFAULT_SIZE);
+  setActiveBtn(DEFAULT_MODE);
 }
