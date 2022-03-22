@@ -13,7 +13,7 @@ const colorPicker = document.querySelector('#colorPicker');
 const colorBtn = document.querySelector('#colorBtn');
 const rainbowBtn = document.querySelector('#rainbowBtn');
 const eraseBtn = document.querySelector('#eraseBtn');
-const clearBtn = document.querySelector('#clearBtn');
+const resetBtn = document.querySelector('#resetBtn');
 
 sizePicker.addEventListener('mousemove', e => setSizeValue(e.target.value));
 sizePicker.addEventListener('change', e => setNewSize(e.target.value));
@@ -21,7 +21,7 @@ colorPicker.addEventListener('change', e => setNewColor(e.target.value));
 colorBtn.addEventListener('click', () => setCurrentMode('color'));
 rainbowBtn.addEventListener('click', () => setCurrentMode('rainbow'));
 eraseBtn.addEventListener('click', () => setCurrentMode('erase'));
-clearBtn.addEventListener('click', () => resetGrid());
+resetBtn.addEventListener('click', () => resetGrid());
 
 // Updates grid size text: "size x size"
 function setSizeValue(size) {
@@ -83,8 +83,6 @@ function setActiveBtn(newMode) {
 
 
 function setBackground() {
-//  let cell = drawGrid;
-//  console.log(cell.style);
   if (currentMode === 'rainbow') {
     console.log("it's rainbow mode");
   }
