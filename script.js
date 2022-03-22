@@ -46,6 +46,17 @@ function setCurrentMode(newMode) {
   currentMode = newMode;
 }
 
+// Generates and returns a random color
+function randomColor () {
+  const range = 256;
+  let color = ``;
+  let red = Math.floor(Math.random() * range);
+  let green = Math.floor(Math.random() * range);
+  let blue = Math.floor(Math.random() * range);
+
+  return color = `rgb(${red}, ${green}, ${blue})`;
+}
+
 // Updates current mode's button style as active
 function setActiveBtn(newMode) {
   if (currentMode === 'rainbow') {
