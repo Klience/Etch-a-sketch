@@ -23,6 +23,11 @@ rainbowBtn.addEventListener('click', () => setCurrentMode('rainbow'));
 eraseBtn.addEventListener('click', () => setCurrentMode('erase'));
 resetBtn.addEventListener('click', () => resetGrid());
 
+// Control when mouse click is down
+ let mouseDown = false;
+ document.body.onmousedown = () => (mouseDown = true);
+ document.body.onmouseup = () => (mouseDown = false);
+
 // Updates grid size text: "size x size"
 function setSizeValue(size) {
   sizeValue.innerText = `${size} x ${size}`;
@@ -81,17 +86,15 @@ function setActiveBtn(newMode) {
   }
 }
 
-
-function setBackground() {
-  const cell = document.querySelector('.gridElement');
-  if (currentMode === 'color') {
-    cell.style.backgroundColor = currentColor;
-  }
-  else if (currentMode === 'rainbow') {
-    cell.style.backgroundColor = randomColor();
-  }
-  else if (currentMode === 'erase') {
-    cell.style.backgroundColor = DEFAULT_COLOR;
+// Sets cell's background color based on mode and event type
+function setBackground(e) {
+   if (e.type === 'mouseover' && !mouseDown) return
+   if (currentMode === 'rainbow') {
+     e.target.style.backgroundColor = randomColor();
+  } else if (currentMode === 'color') {
+    e.target.style.backgroundColor = currentColor
+  } else if (currentMode === 'erase') {
+    e.target.style.backgroundColor = 'rgb(255, 255, 255)';
   }
 }
 
@@ -113,7 +116,8 @@ function drawGrid(size) {
   for (let i = 0; i < size * size; i++) {
     const gridElement = document.createElement('div');
     gridElement.classList.add('gridElement');
-    gridElement.addEventListener('click', setBackground);
+    gridElement.addEventListener('mouseover', setBackground)
+    gridElement.addEventListener('mousedown', setBackground)
     grid.appendChild(gridElement);
   }
 }
