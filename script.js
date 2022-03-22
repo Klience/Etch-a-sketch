@@ -33,6 +33,11 @@ function setNewColor(newColor) {
   currentColor = newColor;
 }
 
+// Resets current color to default
+function resetColor() {
+  currentColor = DEFAULT_COLOR;
+}
+
 // Updates current size with new size from size picker
 function setNewSize(newSize) {
   currentSize = newSize;
@@ -76,7 +81,24 @@ function setActiveBtn(newMode) {
   }
 }
 
+
+function setBackground() {
+//  let cell = drawGrid;
+//  console.log(cell.style);
+  if (currentMode === 'rainbow') {
+    console.log("it's rainbow mode");
+  }
+  else if (currentMode === 'color') {
+    console.log("it's color mode");
+  }
+  else if (currentMode === 'erase') {
+    console.log("it's erase mode");
+  }
+}
+
+// Resets grid's size and cell color
 function resetGrid() {
+  currentColor = DEFAULT_COLOR;
   currentSize = DEFAULT_SIZE;
   sizeValue.innerText = `${currentSize} x ${currentSize}`;
   sizePicker.value = currentSize;
@@ -92,6 +114,7 @@ function drawGrid(size) {
   for (let i = 0; i < size * size; i++) {
     const gridElement = document.createElement('div');
     gridElement.classList.add('gridElement');
+    gridElement.addEventListener('click', setBackground);
     grid.appendChild(gridElement);
   }
 }
